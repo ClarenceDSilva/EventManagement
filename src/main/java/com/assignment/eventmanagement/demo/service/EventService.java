@@ -8,7 +8,7 @@ public interface EventService {
 
     List<Event> getAllEvents();
 
-    Event createEvent(Event event);
+    Event createNewEvent(Event event);
 
     void deleteEventById(Long id);
 

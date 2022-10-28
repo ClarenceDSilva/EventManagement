@@ -25,9 +25,9 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public Event createEvent(Event event) {
+    public Event createNewEvent(Event event) {
         if(event.getId() != null) {
-            throw new BadRequestException("ID must be provided when creating an event");
+            throw new BadRequestException("ID must not be provided when creating an event");
         }
         return eventRepository.save(event);
     }
@@ -43,13 +43,11 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public Event getEventDetailsById(Long id) {
-        if(id == null) {
-            throw new BadRequestException("Id of the event wished to be retrieved must be provided");
-        }
         Optional<Event> event = eventRepository.findById(id);
         if (event.isPresent()) {
             return event.get();
+        }else {
+            throw new BadRequestException("No event exists with the requested eventId");
         }
-        return null;
     }
 }

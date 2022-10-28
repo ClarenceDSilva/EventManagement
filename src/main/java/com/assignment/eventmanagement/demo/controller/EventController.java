@@ -4,10 +4,7 @@ import com.assignment.eventmanagement.demo.model.Event;
 import com.assignment.eventmanagement.demo.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +23,16 @@ public class EventController {
     @ResponseStatus(HttpStatus.OK)
     public List<Event> getAllEvents() {
         return eventService.getAllEvents();
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Event createEvent(@RequestBody Event event) {
+        return eventService.createNewEvent(event);
+    }
+
+    @GetMapping("/{eventId}")
+    public Event getEventDetailsById(@PathVariable String eventId) {
+        return eventService.getEventDetailsById(Long.parseLong(eventId));
     }
 }

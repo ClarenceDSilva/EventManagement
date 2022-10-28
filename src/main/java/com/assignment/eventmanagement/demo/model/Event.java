@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -27,9 +27,9 @@ public class Event implements Serializable {
 
     private String country;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "event", cascade = CascadeType.ALL)
-    private List<Guest> guestList;
+    private Set<Guest> guestList;
 
-    public Event(Long id, String eventName, java.util.Date date, String city, String country, List<Guest> guestList) {
+    public Event(Long id, String eventName, java.util.Date date, String city, String country, Set<Guest> guestList) {
         this.id = id;
         this.eventName = eventName;
         this.date = date;
