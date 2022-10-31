@@ -25,14 +25,26 @@ public class EventController {
         return eventService.getAllEvents();
     }
 
+    @GetMapping("/{eventId}")
+    @ResponseStatus(HttpStatus.OK)
+    public Event getEventDetailsById(@PathVariable String eventId) {
+        return eventService.getEventDetailsById(Long.parseLong(eventId));
+    }
+
+    @GetMapping("/city/{cityName}")
+    public List<Event> getAllEventsByCity(@PathVariable String cityName) {
+        return eventService.getAllEventsInCity(cityName.toLowerCase());
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Event createEvent(@RequestBody Event event) {
         return eventService.createNewEvent(event);
     }
 
-    @GetMapping("/{eventId}")
-    public Event getEventDetailsById(@PathVariable String eventId) {
-        return eventService.getEventDetailsById(Long.parseLong(eventId));
+    @DeleteMapping("/{eventId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteEventById(@PathVariable String eventId) {
+        eventService.deleteEventById(Long.parseLong(eventId));
     }
 }

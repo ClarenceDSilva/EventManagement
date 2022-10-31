@@ -1,14 +1,7 @@
--- TRUNCATE TABLE GUEST;
--- TRUNCATE TABLE EVENT;
--- SET REFERENTIAL_INTEGRITY TRUE;
-
--- ALTER TABLE GUEST ALTER COLUMN id RESTART WITH 1;
--- ALTER TABLE EVENT ALTER COLUMN id RESTART WITH 1;
-
 INSERT INTO EVENT(event_name, curr_date, city, country) VALUES('Coldplay Concert', '2022-11-23', 'London', 'England');
 INSERT INTO EVENT(event_name, curr_date, city, country) VALUES('AR Rahman', '2022-11-23' , 'Mumbai', 'India');
 INSERT INTO EVENT(event_name, curr_date, city, country) VALUES('Guns and Roses North-Am', '2022-10-31', 'Vancouver', 'Canada');
-INSERT INTO EVENT(event_name, curr_date, city, country) VALUES('San Diego Comic Con', '2022-10-30', 'Sab Diego', 'California');
+INSERT INTO EVENT(event_name, curr_date, city, country) VALUES('San Diego Comic Con', '2022-10-30', 'San Diego', 'California');
 INSERT INTO EVENT(event_name, curr_date, city, country) VALUES('Maren Kroymann & Band: In my sixties', '2022-11-01', 'Berlin', 'Germany');
 INSERT INTO EVENT(event_name, curr_date, city, country) VALUES('Lukas Graham', '2022-11-24', 'Cologne', 'Germany');
 INSERT INTO EVENT(event_name, curr_date, city, country) VALUES('Beatles Concert', '2022-11-26', 'Liverpool', 'England');

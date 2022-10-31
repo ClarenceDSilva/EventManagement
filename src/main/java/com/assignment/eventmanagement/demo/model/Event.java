@@ -24,10 +24,12 @@ public class Event implements Serializable {
     @Column(name = "curr_date")
     private java.util.Date date;
     private String city;
-
     private String country;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "event", cascade = CascadeType.ALL)
     private Set<Guest> guestList;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "event", cascade = CascadeType.ALL)
+    private WeatherDetails WeatherDetails;
 
     public Event(Long id, String eventName, java.util.Date date, String city, String country, Set<Guest> guestList) {
         this.id = id;

@@ -1,6 +1,7 @@
 SET REFERENTIAL_INTEGRITY FALSE;
 DROP TABLE IF EXISTS EVENT cascade;
 DROP TABLE IF EXISTS GUEST cascade;
+DROP TABLE IF EXISTS WEATHER cascade;
 SET REFERENTIAL_INTEGRITY TRUE;
 
 CREATE TABLE EVENT (
@@ -19,4 +20,19 @@ CREATE TABLE GUEST (
                        event_id INT NOT NULL
                            references EVENT,
                        PRIMARY KEY (id)
+);
+
+CREATE TABLE WEATHER(
+                        id INT AUTO_INCREMENT,
+                        temperature FLOAT,
+                        feels_like FLOAT,
+                        temp_min FLOAT,
+                        temp_max FLOAT,
+                        pressure LONG,
+                        humidity INT,
+                        speed FLOAT,
+                        deg INT,
+                        event_id INT NOT NULL
+                            references EVENT,
+                        PRIMARY KEY (id)
 );
