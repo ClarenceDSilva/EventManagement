@@ -1,6 +1,7 @@
 package com.assignment.eventmanagement.demo.service.impl;
 
 import com.assignment.eventmanagement.demo.exception.BadRequestException;
+import com.assignment.eventmanagement.demo.exception.ResourceNotFoundException;
 import com.assignment.eventmanagement.demo.model.Event;
 import com.assignment.eventmanagement.demo.model.WeatherDetails;
 import com.assignment.eventmanagement.demo.api.WeatherApi;
@@ -56,7 +57,7 @@ public class EventServiceImpl implements EventService {
         if(event.isPresent()) {
             eventRepository.delete(event.get());
         }else {
-            throw new BadRequestException("No event exists with the requested eventId");
+            throw new ResourceNotFoundException("No event exists with the requested eventId");
         }
     }
 
@@ -69,7 +70,7 @@ public class EventServiceImpl implements EventService {
             event.get().setWeatherDetails(weatherDetails);
             return event.get();
         }else {
-            throw new BadRequestException("No event exists with the requested eventId");
+            throw new ResourceNotFoundException("No event exists with the requested eventId");
         }
     }
 
@@ -77,7 +78,7 @@ public class EventServiceImpl implements EventService {
     public List<Event> getAllEventsInCity(String cityName) {
         List<Event> eventList = eventRepository.fetchAllEventsInCity(cityName);
         if(eventList.size() == 0) {
-            throw new BadRequestException("No event present in this city");
+            throw new ResourceNotFoundException("No event present in this city");
         }else {
             WeatherDetails weatherDetails;
             for(Event event : eventList) {
