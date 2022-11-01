@@ -89,6 +89,20 @@ public class EventServiceImpl implements EventService {
         }
     }
 
+    @Override
+    public Event updateEvent(Event event, Long id) {
+        Optional<Event> eventOptional  = eventRepository.findById(id);
+        if(eventOptional.isEmpty()) {
+            throw new BadRequestException("Could not find an event associated with the Id");
+        }else if(event.getEventName() == null || event.getCity() == null
+                || event.getCountry() == null || event.getDate() == null) {
+            throw new BadRequestException("Missing fields when creating an event. Required fields: Name, City, Country, Date");
+        }else {
+            event.setId(id);
+            return eventRepository.save(event);
+        }
+    }
+
     /*
     * External API call to fetch the weather of the location
     * */

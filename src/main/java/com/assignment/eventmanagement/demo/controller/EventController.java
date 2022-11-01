@@ -6,7 +6,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -50,12 +49,19 @@ public class EventController {
     public Event createEvent(@RequestBody Event event) {
         return eventService.createNewEvent(event);
     }
-
     @DeleteMapping("/{eventId}")
     @ApiOperation(value = "Delete an existing event",
             notes = "Provide the event id of the event that you want to delete")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteEventById(@PathVariable String eventId) {
         eventService.deleteEventById(Long.parseLong(eventId));
+    }
+
+    @PutMapping("/{eventId}")
+    @ApiOperation(value = "Update an existing event",
+            notes = "Provide the event id and the new details of the event that you want to update")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public Event updateEvent(@RequestBody Event event, @PathVariable String eventId) {
+        return eventService.updateEvent(event, Long.parseLong(eventId));
     }
 }

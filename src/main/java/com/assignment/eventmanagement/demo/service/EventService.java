@@ -18,5 +18,7 @@ public interface EventService {
 
     List<Event> getAllEventsInCity(String cityName);
 
+    Event updateEvent(Event event, Long id);
+
     WeatherDetails fetchCurrentWeatherForLocation(String city);
 }
