@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.assignment.eventmanagement</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>eventmanagement</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>EventManagement</name>
 	<description>Event Management API</description>

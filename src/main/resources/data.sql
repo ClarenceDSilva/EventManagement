@@ -19,25 +19,25 @@ INSERT INTO EVENT(event_name, curr_date, city, country) VALUES('The Lion King-Br
 INSERT INTO EVENT(event_name, curr_date, city, country) VALUES('Dubai Expo 2022', '2023-03-19', 'Dubai', 'United Arab Emirates');
 INSERT INTO EVENT(event_name, curr_date, city, country) VALUES('Nutcracker! Magical Christmas Ballet', '2022-12-18', 'San Antonio', 'United States');
 
-INSERT INTO GUEST(id, name, city, event_id) VALUES(1, 'Chris Martin', 'London', 1);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(2, 'Balbir Pasha', 'Punjab', 2);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(3, 'Sachin Tendulkar', 'Mumbai', 3);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(4, 'Kyle Reese', 'Los Angeles', 4);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(5, 'Virgil Van Dijk', 'Amsterdam', 5);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(6, 'Phillip Lahm', 'Munich', 6);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(7, 'Andres Iniesta', 'Barcelona', 7);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(8, 'Tom Brady', 'Boston', 8);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(9, 'Mickey Mouse', 'Hallifax', 9);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(10, 'Chance Furlong', 'Kiev', 10);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(11, 'Jake Clawson', 'Lisbon', 11);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(12, 'Robert Downey Jr', 'Cologne', 13);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(13, 'Cersei Lannnister', 'Reykjavik', 14);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(14, 'Arya Stark', 'Syracuse', 15);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(15, 'Margot Robbie', 'Adelaide', 16);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(16, 'Martin Scorsese', 'New York', 17);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(17, 'Tyrion Lannister', 'Vancouver', 18);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(18, 'Luke Skywalker', 'Dubai', 19);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(19, 'Samwise Gamgee', 'Wellington', 20);
-INSERT INTO GUEST(id, name, city, event_id) VALUES(20, 'Steven Gerrard', 'Liverpool', 12);
+INSERT INTO GUEST(name, city, event_id) VALUES('Chris Martin', 'London', 1);
+INSERT INTO GUEST(name, city, event_id) VALUES('Balbir Pasha', 'Punjab', 2);
+INSERT INTO GUEST(name, city, event_id) VALUES('Sachin Tendulkar', 'Mumbai', 3);
+INSERT INTO GUEST(name, city, event_id) VALUES('Kyle Reese', 'Los Angeles', 4);
+INSERT INTO GUEST(name, city, event_id) VALUES('Virgil Van Dijk', 'Amsterdam', 5);
+INSERT INTO GUEST(name, city, event_id) VALUES('Phillip Lahm', 'Munich', 6);
+INSERT INTO GUEST(name, city, event_id) VALUES('Andres Iniesta', 'Barcelona', 7);
+INSERT INTO GUEST(name, city, event_id) VALUES('Tom Brady', 'Boston', 8);
+INSERT INTO GUEST(name, city, event_id) VALUES('Mickey Mouse', 'Hallifax', 9);
+INSERT INTO GUEST(name, city, event_id) VALUES('Chance Furlong', 'Kiev', 10);
+INSERT INTO GUEST(name, city, event_id) VALUES('Jake Clawson', 'Lisbon', 11);
+INSERT INTO GUEST(name, city, event_id) VALUES('Robert Downey Jr', 'Cologne', 13);
+INSERT INTO GUEST(name, city, event_id) VALUES('Cersei Lannnister', 'Reykjavik', 14);
+INSERT INTO GUEST(name, city, event_id) VALUES('Arya Stark', 'Syracuse', 15);
+INSERT INTO GUEST(name, city, event_id) VALUES('Margot Robbie', 'Adelaide', 16);
+INSERT INTO GUEST(name, city, event_id) VALUES('Martin Scorsese', 'New York', 17);
+INSERT INTO GUEST(name, city, event_id) VALUES('Tyrion Lannister', 'Vancouver', 18);
+INSERT INTO GUEST(name, city, event_id) VALUES('Luke Skywalker', 'Dubai', 19);
+INSERT INTO GUEST(name, city, event_id) VALUES('Samwise Gamgee', 'Wellington', 20);
+INSERT INTO GUEST(name, city, event_id) VALUES('Steven Gerrard', 'Liverpool', 12);
 
 

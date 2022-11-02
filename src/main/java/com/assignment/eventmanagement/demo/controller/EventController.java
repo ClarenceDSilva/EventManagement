@@ -2,6 +2,7 @@ package com.assignment.eventmanagement.demo.controller;
 
 import com.assignment.eventmanagement.demo.model.Event;
 import com.assignment.eventmanagement.demo.service.EventService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/events")
+@Api(value = "/events", tags = "Events API")
 public class EventController {
 
     private final EventService eventService;
