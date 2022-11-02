@@ -30,7 +30,7 @@ mvn spring-boot:run -Dspring-boot.run.arguments=--api.key=<add_your_api_key_here
 * Once the server starts, all your requests should go through port 8080
 * You can check the **Swagger Documentation of the APIs ** [here](http://localhost:8080/swagger-ui.html/)
 
-2. **Running the through Dockerfile**
+2. **Running via Dockerfile**
 **Prerequisite:** Before you run the Dockerfile, you need to add your api key in the **application.properties** file at the **api.key** field. This will automatically connect your API calls to the weather API
 * Locate the directory where the **Dockerfile** is present and the run the following commands in order
 ``` shell
