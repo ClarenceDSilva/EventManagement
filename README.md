@@ -4,9 +4,9 @@ A Java springboot application for creating REST APIs for event management
 ## Features:
 * Operations for Creating, Reading, Updating and Deleting Events
 * Operations for adding a Guest to an Event
-* Operation for viewing all Events in a City
-* API response also features current weather obtained from [openweather.org](https://openweathermap.org/)
-* All APIs are connected through an in memory H2 database
+* Operation to view all the Events in a City
+* API responses also features current weather of the city obtained from [openweather.org](https://openweathermap.org/)
+* All APIs are connected through an in-memory H2 database
 
 ## Steps to run the project
 
