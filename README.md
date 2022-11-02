@@ -27,7 +27,7 @@ mvn clean install -DskipTests
 ```shell
 mvn spring-boot:run -Dspring-boot.run.arguments=--api.key=<add_your_api_key_here>
 ```
-* Once the server starts, all your requests should go through port 8080
+* Once the server starts, all your requests should go through the port 8080
 * Kindly check the **[Swagger Documentation](http://localhost:8080/swagger-ui.html/)** for the various API requests
 
 2. **Running via Dockerfile**
@@ -40,7 +40,7 @@ docker build -t eventmanagement.jar .
 ``` shell
 docker run -p 9090:8080 eventmanagement.jar
 ```
-* Once the server starts, all your requests should go through port 9090
+* Once the server starts, all your requests should go through the port 9090
 * Kindly check the **[Swagger Documentation](http://localhost:9090/swagger-ui.html/)** for the various API requests 
 
 ## Testing the APIs
