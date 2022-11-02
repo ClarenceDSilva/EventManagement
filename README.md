@@ -44,7 +44,7 @@ docker run -p 9090:8080 eventmanagement.jar
 * Kindly check the **[Swagger Documentation](http://localhost:9090/swagger-ui.html/)** for the various API requests 
 
 ## Testing the APIs
-* You may use a client like (Postman)[https://www.postman.com/] or any other relevant clients
+* You may use a client like [Postman](https://www.postman.com/) or any other relevant clients
 
 ## Tech Stack Used
 * Java 18
