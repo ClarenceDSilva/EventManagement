@@ -28,7 +28,7 @@ public class SwaggerConfig {
 
     private ApiInfo metadata() {
         return new ApiInfoBuilder()
-                .title("Event Management API application - Backbone(BKBN)")
+                .title("Event Management API application")
                 .description("API documentation for Event Management Application")
                 .version("1.1.0")
                 .contact(new Contact("Clarence DSilva", "https://www.linkedin.com/in/clarencedsilva/","clarencedsilva24@gmail.com"))

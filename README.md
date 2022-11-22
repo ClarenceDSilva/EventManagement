@@ -1,4 +1,4 @@
-# Event Management Application - Backbone Assessment
+# Event Management Application
 A Java springboot application for creating REST APIs for event management
 
 ## Features
