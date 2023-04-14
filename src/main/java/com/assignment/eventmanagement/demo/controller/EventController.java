@@ -51,6 +51,7 @@ public class EventController {
     public Event createEvent(@RequestBody Event event) {
         return eventService.createNewEvent(event);
     }
+
     @DeleteMapping("/{eventId}")
     @ApiOperation(value = "Delete an existing event",
             notes = "Provide the event id of the event that you want to delete")

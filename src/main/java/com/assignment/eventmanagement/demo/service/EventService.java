@@ -19,5 +19,5 @@ public interface EventService {
 
     Event updateEvent(Event event, Long id);
 
-    WeatherDetails fetchCurrentWeatherForLocation(String city);
+    //WeatherDetails fetchCurrentWeatherForLocation(String city);
 }

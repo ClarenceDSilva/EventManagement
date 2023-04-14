@@ -4,13 +4,11 @@ import com.assignment.eventmanagement.demo.exception.BadRequestException;
 import com.assignment.eventmanagement.demo.exception.ResourceNotFoundException;
 import com.assignment.eventmanagement.demo.model.Event;
 import com.assignment.eventmanagement.demo.model.WeatherDetails;
-import com.assignment.eventmanagement.demo.api.WeatherApi;
 import com.assignment.eventmanagement.demo.repository.EventRepository;
 import com.assignment.eventmanagement.demo.service.EventService;
+import com.assignment.eventmanagement.demo.service.externalapi.WeatherDetailsApi;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,17 +16,12 @@ import java.util.Optional;
 @Service
 public class EventServiceImpl implements EventService {
     private final EventRepository eventRepository;
-    private RestTemplate restTemplate;
-    @Value("${external.api.url}")
-    private String weatherApiUrl;
-    @Value("${api.key}")
-    private String apiKey;
-    private WeatherApi weatherApi;
+    private final WeatherDetailsApi weatherDetailsUtil;
 
     @Autowired
-    public EventServiceImpl(EventRepository eventRepository, RestTemplate restTemplate) {
+    public EventServiceImpl(EventRepository eventRepository, WeatherDetailsApi weatherDetailsApi) {
         this.eventRepository = eventRepository;
-        this.restTemplate = restTemplate;
+        this.weatherDetailsUtil = weatherDetailsApi;
     }
 
     @Override
@@ -36,7 +29,7 @@ public class EventServiceImpl implements EventService {
         List<Event> eventList = eventRepository.findAll();
         WeatherDetails weatherDetails;
         for(Event event : eventList) {
-            weatherDetails = fetchCurrentWeatherForLocation(event.getCity());
+            weatherDetails = weatherDetailsUtil.fetchCurrentWeatherForLocation(event.getCity());
             event.setWeatherDetails(weatherDetails);
         }
         return eventList;
@@ -66,7 +59,7 @@ public class EventServiceImpl implements EventService {
         Optional<Event> event = eventRepository.findById(id);
         if (event.isPresent()) {
             WeatherDetails weatherDetails;
-            weatherDetails = fetchCurrentWeatherForLocation(event.get().getCity());
+            weatherDetails = weatherDetailsUtil.fetchCurrentWeatherForLocation(event.get().getCity());
             event.get().setWeatherDetails(weatherDetails);
             return event.get();
         }else {
@@ -82,7 +75,7 @@ public class EventServiceImpl implements EventService {
         }else {
             WeatherDetails weatherDetails;
             for(Event event : eventList) {
-                weatherDetails = fetchCurrentWeatherForLocation(event.getCity());
+                weatherDetails = weatherDetailsUtil.fetchCurrentWeatherForLocation(event.getCity());
                 event.setWeatherDetails(weatherDetails);
             }
             return eventList;
@@ -101,25 +94,5 @@ public class EventServiceImpl implements EventService {
             event.setId(id);
             return eventRepository.save(event);
         }
-    }
-
-    /*
-    * External API call to fetch the weather of the location
-    * */
-    @Override
-    public WeatherDetails fetchCurrentWeatherForLocation(String city) {
-        WeatherDetails weatherDetails = new WeatherDetails();
-        weatherApi = restTemplate.getForObject(weatherApiUrl+"?q="+city+"&appid="+apiKey+"&units=metric", WeatherApi.class);
-
-        weatherDetails.setTemperature(weatherApi.getMain().getTemp());
-        weatherDetails.setTemp_max(weatherApi.getMain().getTemp_max());
-        weatherDetails.setTemp_min(weatherApi.getMain().getTemp_min());
-        weatherDetails.setFeels_like(weatherApi.getMain().getFeels_like());
-        weatherDetails.setPressure(weatherApi.getMain().getPressure());
-        weatherDetails.setHumidity(weatherApi.getMain().getHumidity());
-        weatherDetails.setSpeed(weatherApi.getWind().getSpeed());
-        weatherDetails.setDeg(weatherApi.getWind().getDeg());
-
-        return weatherDetails;
     }
 }

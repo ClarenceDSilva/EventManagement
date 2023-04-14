@@ -1,5 +1,6 @@
 package com.assignment.eventmanagement.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +19,7 @@ public class Event implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @JsonProperty("event_name")
     private String eventName;
 
     @Temporal(TemporalType.DATE)
@@ -26,9 +28,11 @@ public class Event implements Serializable {
     private String city;
     private String country;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "event", cascade = CascadeType.ALL)
+    @JsonProperty("guest_list")
     private Set<Guest> guestList;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "event", cascade = CascadeType.ALL)
+    @JsonProperty("weather_details")
     private WeatherDetails WeatherDetails;
 
     public Event(Long id, String eventName, java.util.Date date, String city, String country, Set<Guest> guestList) {
