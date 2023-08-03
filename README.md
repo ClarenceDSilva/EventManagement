@@ -41,12 +41,12 @@ docker build -t eventmanagement.jar .
 docker run -p 9090:8080 eventmanagement.jar
 ```
 * Once the server starts, all your requests should go through the port 9090
-* Kindly check the **[Swagger Documentation](http://localhost:9090/swagger-ui.html/)** for the various API endpoints 
+* Kindly check the **[Swagger Documentation](http://localhost:9090/swagger-ui.html/)** to view the various API endpoints 
 
 ## Testing the APIs
-* You may use a REST API client like [Postman](https://www.postman.com/) or any other relevant software
+* You may use any REST API client such as [Postman](https://www.postman.com/)
 
-## Tech Stack Used
+## Tech stack and tools used
 * Java 18
 * Maven 3.8.6
 * H2 Database
